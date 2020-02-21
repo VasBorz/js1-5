@@ -1,0 +1,26 @@
+.et-div{
+    margin-top: 60px;
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+button{
+    padding: 15px 50px;border: none;
+    background-color: #f6c080;
+    border-radius: 5px;
+    font-size: 20px;
+    transition: 300ms;
+}
+button:hover{
+    transform: translateY(-5px);
+    box-shadow: 2px 2px 10px #e1e1e1;
+    cursor: pointer;
+}
+button:active{
+    box-shadow: 2px 2px 5px #e1e1e1;
+    transform: translateY(-3px);
+    background-color: #DCAF82;
+}
+button:focus{
+    outline: none;
+}
