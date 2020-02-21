@@ -3,6 +3,8 @@
 // Доска должна быть разлинована соответствующим образом, т.е. чередовать черные и белые ячейки. ++
 // Строки должны нумероваться числами от 1 до 8, столбцы – латинскими буквами A, B, C, D, E, F, G, H.
 
+
+//Create general chess div
 let div = document.createElement("div"),
     rows, columns, counter;
 
@@ -13,6 +15,7 @@ div.style.maxWidth = '1200px';
 div.style.margin = '0 auto';
 document.body.append(div);
 
+//Generate chess desk
 for ( rows = 0, counter = 0; rows < 8; rows++){
 
     for ( columns = 0; columns < 8 ; columns++){
@@ -53,12 +56,16 @@ for ( rows = 0, counter = 0; rows < 8; rows++){
         document.querySelector('.chess').append(square);
     }
 }
+creator ('10 / 11',1,'');
+creator ('1 / 2',1,'');
 
+
+//Creator for named or numbers divs
 function creator (grid,rows,innerHTML,rotate){
     let el = document.createElement("div");
 
     if(rotate){
-         el.style.transform = 'rotate(180deg)';
+        el.style.transform = 'rotate(180deg)';
     }
     el.style.gridColumn = grid;
     el.style.gridRow = rows;
@@ -69,14 +76,13 @@ function creator (grid,rows,innerHTML,rotate){
     return  document.querySelector('.chess').prepend(el);
 
 }
-creator ('10 / 11',1,'');
-creator ('1 / 2',1,'');
-
 
 
 // 2. Заполнить созданную таблицу буквами, отвечающими за шахматную фигуру,
 // например К – король,
 // Ф – ферзь и т.п., причем все фигуры должны стоять на своих местах и быть соответственно черными и белыми.
+
+//Switcher to name all blocks like A1, H1, D8.. + added data attribute for each div
 function switcher (rows, columns){
     switch (rows) {
         case 0:{
@@ -113,6 +119,8 @@ function switcher (rows, columns){
         }
     }
 }
+
+//Convert from number to liter
 function nTol (number){
     switch (number) {
         case 0:{
@@ -142,7 +150,16 @@ function nTol (number){
     }
 }
 
+//Rotator for chess desk
+function rotate() {
+   var el = document.querySelector('.chess');
+
+   el.style.transform += 'rotate(90deg)';
+}
+
 // 3. *Заменить буквы, обозначающие фигуры картинками.
+
+//Insert images into the chess desk
 function insertImage(selector,bColor,icon,rotate) {
     var el = document.querySelectorAll('[data="'+selector+'"]');
 
@@ -195,3 +212,4 @@ insertImage('F7','white','&#x2659;');
 insertImage('E7','black','&#x2659;');
 insertImage('C7','black','&#x2659;');
 insertImage('B7','white','&#x2659;');
+
